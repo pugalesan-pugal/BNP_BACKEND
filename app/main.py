@@ -7,12 +7,10 @@ from supabase import create_client, Client
 
 load_dotenv()
 
-SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_SERVICE_ROLE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
-ADMIN_TOKEN = os.getenv("ADMIN_TOKEN")
-
-if not SUPABASE_URL or not SUPABASE_SERVICE_ROLE_KEY or not ADMIN_TOKEN:
-    raise RuntimeError("Missing required environment variables: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, or ADMIN_TOKEN")
+# Hardcoded configuration per user request (no env variables)
+SUPABASE_URL = "https://qbpydcfinpzvahfkcrzc.supabase.co"
+SUPABASE_SERVICE_ROLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFicHlkY2ZpbnB6dmFoZmtjcnpjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg3MjE4MjcsImV4cCI6MjA3NDI5NzgyN30.KmLnQsMlFK_rwItuvN8E_xt8-KXXkr3K0QMAeEEmcWY"
+ADMIN_TOKEN = "jv52KKhbVtOayDVuKhGf+EYKWsjQzmP/aNM/AHfUYib3XqgPnNnuSZ2SZVJyRRi3"
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
 
