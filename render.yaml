@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ml-analytics-backend
+    env: python
+    plan: free
+    rootDir: fastapi_backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PIP_DISABLE_PIP_VERSION_CHECK
+        value: "1"
